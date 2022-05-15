@@ -10,8 +10,8 @@ class UtilityFunctions{
 	// else, horizontal (cutDim == 1)
     // returns 0 or 1
 	static calcCutDim(cell) {
-		vertLength = Math.abs(cell.high.getY() - cell.low.getY());
-		horizLength = Math.abs(cell.high.getX() - cell.low.getX());   
+		let vertLength = Math.abs(cell.high.getY() - cell.low.getY());
+		let horizLength = Math.abs(cell.high.getX() - cell.low.getX());   
 		
 		if(vertLength > horizLength) {
 			return 1;
@@ -32,7 +32,13 @@ class UtilityFunctions{
         // modify the roboArray, turn any robot into undefined if too far
         for (let index in roboArray) {
             let robot = (roboArray[index]);
+
             if(robot != undefined) {
+                //if(loadLocation.getDistanceFrom(new Location(robot.x, robot.y))) {
+                   // console.log(loadLocation.getDistanceFrom(new Location(robot.x, robot.y)));
+                //}
+
+  
                 if(loadLocation.getDistanceFrom(new Location(robot.x, robot.y)) > validRadius){
                     roboArray[index] = undefined; // too far, do not consider this robot
                 }
@@ -43,8 +49,9 @@ class UtilityFunctions{
 
         // below we get the robot with the highest battery...
         let best = undefined;
-        for (let robot in roboArray) {
+        for (let robot of roboArray) {
             if(robot != undefined) {
+
                 if(best == undefined) {
                     best = robot;
                 } else {
@@ -62,17 +69,17 @@ class UtilityFunctions{
     static subtreeToArray(roboNode) {
         let array = new Array(0);
 
-        subtreeToArrayAux(roboNode, array);
+        UtilityFunctions.subtreeToArrayAux(roboNode, array);
 
         return array;
     }
 
-    // curr is a RoboNode
+    // curr is a robot
     static subtreeToArrayAux(curr, array) {
         if(curr != undefined) {
-            array.push(curr);
-            subtreeToArrayAux(curr.left, array);
-            subtreeToArrayAux(curr.right, array);
+            array.push(curr.robot);
+            UtilityFunctions.subtreeToArrayAux(curr.left, array);
+            UtilityFunctions.subtreeToArrayAux(curr.right, array);
         }
     }
 

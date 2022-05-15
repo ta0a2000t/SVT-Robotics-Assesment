@@ -60,7 +60,7 @@ class RoboNode {
     // assumes inputs are not undefined
     // void
     insert(robot, cell) {
-        insertAux(this, robot, cell);
+        this.insertAux(this, robot, cell);
     }
 
     // recursive...
@@ -78,7 +78,7 @@ class RoboNode {
                 curr.left = newNode;
 								
 			} else {
-			    insertAux(curr.left, robot, curr.getLeftCell(cell));
+			    this.insertAux(curr.left, robot, curr.getLeftCell(cell));
 			}
 		} else { // right side, insert as right child
 			if(curr.right == undefined) {
@@ -88,7 +88,7 @@ class RoboNode {
 
 				curr.right = newNode;
 			} else {
-				insertAux(curr.right, robot, curr.getRightCell(cell));
+				this.insertAux(curr.right, robot, curr.getRightCell(cell));
 			}
 		}
 	}

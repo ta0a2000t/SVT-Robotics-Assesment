@@ -16,13 +16,18 @@ class Rectangle {
 
     // other is a Rectangle
     isDisjointFrom(other) {
-        if(other.high.getX() < low.getX() || other.low.getX() > high.getX()){
+        if(other.high.getX() < this.low.getX() || other.low.getX() > this.high.getX()){
             return true;
-        } else if(other.high.getY() < low.getY() || other.low.getY() > high.getY()){
+        } else if(other.high.getY() < this.low.getY() || other.low.getY() > this.high.getY()){
             return true;
         }
 
 		return false;
+    }
+
+    contains(other) {
+        return this.getLow().getX() <= other.getLow().getX() && this.getLow().getY() <= other.getLow().getY() &&
+        this.getHigh().getY() >= other.getHigh().getY() && this.getHigh().getX() >= other.getHigh().getX();
     }
 }
 
