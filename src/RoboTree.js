@@ -27,6 +27,8 @@ class RoboTree {
         }
     }
 
+    // loadLocation is a Location
+    // validRadius is an int, the maximum distance from the load to a robot
     getBestRobot(loadLocation, validRadius) {
         let rangeLower = new Location(loadLocation.x - validRadius, loadLocation.y - validRadius);
         let rangeHigher = new Location(loadLocation.x + validRadius, loadLocation.y + validRadius);
@@ -34,11 +36,11 @@ class RoboTree {
 
         return getBestRobotAux(range, this.root, loadLocation, validRadius);
     }
-
+    
+    // recursive
     // range is a Rectangle
     // curr is a RoboNode
     // cell is a Rectangle
-    // radius is the maximum distance from the load to a robot
     getBestRobotAux(range, curr, cell, loadLocation, validRadius) {
         if(curr == undefined || range.isDisjointFrom(cell)) {
             return undefined;
@@ -56,6 +58,7 @@ class RoboTree {
             return UtilityFunctions.getBestRobotAux([bestLeft, bestRight, curr],  validRadius, loadLocation);
         }
     }
+    
 
 }
 

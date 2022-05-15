@@ -1,4 +1,5 @@
 const Location = require('./Location');
+const RoboNode = require('./RoboNode');
 
 
 // static helper functions
@@ -55,6 +56,29 @@ class UtilityFunctions{
         }
 
         return best;
+    }
+
+    // returns an array containing all nodes in the roboNode subtree
+    static subtreeToArray(roboNode) {
+        let array = new Array(0);
+
+        subtreeToArrayAux(roboNode, array);
+
+        return array;
+    }
+
+    // curr is a RoboNode
+    static subtreeToArrayAux(curr, array) {
+        if(curr != undefined) {
+            array.push(curr);
+            subtreeToArrayAux(curr.left, array);
+            subtreeToArrayAux(curr.right, array);
+        }
+    }
+
+    // shuffles and randomize an array
+    static shuffle(array) {
+        array.sort(() => Math.random() - 0.5);
     }
 
 
