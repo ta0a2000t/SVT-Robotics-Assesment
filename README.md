@@ -12,11 +12,11 @@
 - radius: a number indicating the radius around the 'load'.
 
 ##### Sample prompt from the CLI: 
-###### Usage: loadId:String x:int y:int radius:int(default: 10)
+###### Usage: loadId:String  y:int  x:int  radius:int(default: 10)
 
 
 #### Example1 input from user:
-###### f3 5 7
+###### f3 7 5
 
 #### Example1 result:
 ###### Searching within 10 distance...
@@ -28,7 +28,7 @@
 
 
 #### Example2 input from user:
-###### f3 5 7 99999
+###### f3 7 5 99999
 
 
 #### Example2 result:

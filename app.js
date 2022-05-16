@@ -11,7 +11,7 @@ const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
     prompt: '##############################################################\n'
-    + 'Usage: loadId:String x:int y:int radius:int(default: 10)\n'
+    + 'Usage: loadId:String  y:int  x:int  radius:int(default: 10)\n'
 });
 
 // url: String
@@ -70,7 +70,7 @@ function startCLILoop(robots, roboTree) {
         const validRadius = parseInt(arguments[3]) || 10; // only consider robots within this radius, default 10
         const targetLoad = {
             loadId : arguments[0],
-            location: new Location(parseInt(arguments[1]), parseInt(arguments[2]))
+            location: new Location(parseInt(arguments[2]), parseInt(arguments[1]))
         };
         if(isNaN(targetLoad.location.getX()) || isNaN(targetLoad.location.getY())) {
             console.log("invalid arguemnts! Try again...");
