@@ -28,33 +28,31 @@ class UtilityFunctions{
     // returns best robot (highest battery within the radius)
     // return value can be undefined if all robots in roboArray are too far
     static bestRobot(roboArray, validRadius, loadLocation) {
-
+        
         // modify the roboArray, turn any robot into undefined if too far
         for (let index in roboArray) {
             let robot = (roboArray[index]);
+            if(robot !== undefined) {
 
-            if(robot != undefined) {
-                //if(loadLocation.getDistanceFrom(new Location(robot.x, robot.y))) {
-                   // console.log(loadLocation.getDistanceFrom(new Location(robot.x, robot.y)));
-                //}
-
-  
                 if(loadLocation.getDistanceFrom(new Location(robot.x, robot.y)) > validRadius){
+
                     roboArray[index] = undefined; // too far, do not consider this robot
                 }
             }
         }
         // now all robots are within the radius from the load
 
-
+        
         // below we get the robot with the highest battery...
         let best = undefined;
         for (let robot of roboArray) {
-            if(robot != undefined) {
+            if(robot !== undefined) {
 
-                if(best == undefined) {
+                if(best === undefined) {
+
                     best = robot;
                 } else {
+
                     if(robot.batteryLevel > best.batteryLevel) {
                         best = robot;
                     }

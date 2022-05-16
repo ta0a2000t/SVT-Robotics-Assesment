@@ -14,7 +14,7 @@ class Rectangle {
         return this.high;
     }
 
-    // other is a Rectangle
+    // other: Rectangle
     isDisjointFrom(other) {
         if(other.high.getX() < this.low.getX() || other.low.getX() > this.high.getX()){
             return true;
@@ -25,6 +25,7 @@ class Rectangle {
 		return false;
     }
 
+    // other: Rectangle
     contains(other) {
         return this.getLow().getX() <= other.getLow().getX() && this.getLow().getY() <= other.getLow().getY() &&
         this.getHigh().getY() >= other.getHigh().getY() && this.getHigh().getX() >= other.getHigh().getX();

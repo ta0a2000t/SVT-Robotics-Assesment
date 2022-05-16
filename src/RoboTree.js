@@ -29,39 +29,47 @@ class RoboTree {
 
     // loadLocation is a Location
     // validRadius is an int, the maximum distance from the load to a robot
+    // withinRange: array of robots
     getBestRobot(loadLocation, validRadius) {
         let rangeLower = new Location(loadLocation.x - validRadius, loadLocation.y - validRadius);
         let rangeHigher = new Location(loadLocation.x + validRadius, loadLocation.y + validRadius);
         let range = new Rectangle(rangeLower, rangeHigher);
-        
-        let best =  this.getBestRobotAux(range, this.root, this.bbx, loadLocation, validRadius);
-        return best;
+        let withinRange = new Array(0);
+
+        // fill up withinRange with robots
+        this.findWithinRangeRobots(range, this.root, this.bbx, withinRange);
+
+        return UtilityFunctions.bestRobot(withinRange, validRadius, loadLocation);
     }
     
-    // recursive
-    // range is a Rectangle
-    // curr is a RoboNode
-    // cell is a Rectangle
-    getBestRobotAux(range, curr, cell, loadLocation, validRadius) {
+    // recursive, fills up withinRange array with potential robots (inside our square range)
+    // Note: the range is a square, so we do not want those away from the radius(on edges of the square).
+    // range: Rectangle
+    // curr: RoboNode
+    // cell: Rectangle
+    // withinRange: array of robots
+    // void
+    findWithinRangeRobots(range, curr, cell, withinRange) {
         if(curr == undefined || range.isDisjointFrom(cell)) {
-            return undefined;
+            return;
         } else if(range.contains(cell)) { // curr and its subtree are within range
             // However, the radius makes a circle, so we still need to check for those on the edges
             // (need to check for those within the range but not within the radius)
             // note that range is a Rectangle that is square and with sides of length 2*radius
             // the center of range is the location of the load
-            return UtilityFunctions.bestRobot(UtilityFunctions.subtreeToArray(curr),  validRadius, loadLocation);
 
-        } else { // they intersect
-            let bestLeft = this.getBestRobotAux(range, curr.left, curr.getLeftCell(cell), loadLocation, validRadius);
-            let bestRight = this.getBestRobotAux(range, curr.right, curr.getRightCell(cell), loadLocation, validRadius);
-            let bestLeftRobot = (bestLeft == undefined) ? undefined : bestLeft.robot;
-            let bestRightRobot = (bestRight == undefined) ? undefined : bestRight.robot;
-            let currRobot = (curr == undefined) ? undefined : curr.robot;
+            UtilityFunctions.subtreeToArray(curr).forEach(robot => withinRange.push(robot));
+            return;
+        } else { // the two cells intersect
 
-            let best = UtilityFunctions.bestRobot([bestLeftRobot, bestRightRobot, currRobot],  validRadius, loadLocation);
-            console.log(best);
-            return best;
+            if(curr.Location.isInside(range)) {
+                withinRange.push(curr.robot)
+            }
+
+            this.findWithinRangeRobots(range, curr.left, curr.getLeftCell(cell), withinRange);
+            this.findWithinRangeRobots(range, curr.right, curr.getRightCell(cell), withinRange);
+
+            return;
         }
     }
     

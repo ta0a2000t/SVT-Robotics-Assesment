@@ -12,7 +12,7 @@ class RoboNode {
         this.right = undefined;
     }
 
-    // otherLocation is a Location
+    // otherLocation: Location
     // returns true if other is left(when cutDim == 0, vertical cut),
     // or down(when cutDim == 1, horizontal cut) of the current Location
     isInputLeftSide(otherLocation) {
