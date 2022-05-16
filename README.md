@@ -51,8 +51,8 @@
 - Perform range search to identify robots that are close to the load.
 - Now we have an array of close robots, perfomr a Simple Linear Search.
 
-#### KD-Tree Construction| Time: O( nlog(n) )  ,   Space: O(n)
-#### Find Best Robot| Time: O( log(n) )  ,   Expected Space: O( log(n) )
+###### KD-Tree Construction| Time: O( nlog(n) )  ,   Space: O(n)
+###### Find Best Robot| Time: O( log(n) )  ,   Expected Space: O( log(n) )
 - Complexity proportional to hegiht of the tree, 'expected' since we shuffle the robot array randomly.
 
 ### Simple Linear Search
@@ -75,3 +75,4 @@
 - After an insertion/deletion, which is done recursively, check if the depth of an ancestor of the inserted/delted robot is too different from the depth of its sibling.
 - Rebuild the subtree rooted at the parent of that ancestor and update cutting dimetions (if the current rectangle is too wide, the cutting dimetion would be vertical, otherwise horizontal). 
 - To rebuild, make an array containing all the nodes of that subtree, then shuffle that array randomly to have an expected hieght of O(log(n)).
+
