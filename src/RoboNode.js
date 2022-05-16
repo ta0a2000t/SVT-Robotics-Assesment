@@ -2,6 +2,8 @@ const Location = require('./Location');
 const Rectangle = require('./Rectangle');
 const UtilityFunctions = require('./UtilityFunctions');
 
+// represents a node within a KD-Tree
+// has a robot
 class RoboNode {
     constructor(robot, Location, cutDim) {
         this.robot = robot;

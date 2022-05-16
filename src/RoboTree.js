@@ -3,8 +3,10 @@ const Location = require('./Location');
 const Rectangle = require('./Rectangle');
 const UtilityFunctions = require('./UtilityFunctions');
 
+// represents a KD-Tree that is made of RoboNodes, 
+// for more info: https://en.wikipedia.org/wiki/K-d_tree
 class RoboTree {    
-    // boundingBox is a Rectangle
+    // boundingBox is a Rectangle, the area that the robots and load can be at.
     constructor(boundingBox) {
         this.root = undefined;
         this.bbx = boundingBox;

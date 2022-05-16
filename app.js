@@ -34,7 +34,7 @@ function constructKDRoboTree(robots) {
 
 // targetLoad.loadId: string
 // targetLoad.location: Location
-// returns a robot
+// void
 function getBestRobot(roboTree, targetLoad, validRadius) {
 
     let best = roboTree.getBestRobot(targetLoad.location, validRadius);
@@ -42,7 +42,6 @@ function getBestRobot(roboTree, targetLoad, validRadius) {
     console.log(">>>Result using the KD-Tree approach:")
     console.log((best === undefined) ? `No robots within ${validRadius} distance.`: best);
     console.log("");
-
 }
 
 
@@ -50,15 +49,13 @@ function getBestRobot(roboTree, targetLoad, validRadius) {
 // then return the one with the highest battery.
 // targetLoad.loadId: string
 // targetLoad.location: Location
-
-// returns a robot
+// void
 function simpleGetBestRobot(robots, targetLoad, validRadius) {
     let best = UtilityFunctions.bestRobot(robots, validRadius, targetLoad.location);
 
     console.log(">>>Result using the simple linear search approach:")
     console.log((best === undefined) ? `No robots within ${validRadius} distance.`: best);
     console.log("");
-
 }
 
 // robots: array of robots, for the linear search
@@ -97,7 +94,8 @@ function main() {
         // Since we want to construct the roboTree, 
             // we will insert each robot one by one. If the array of robots was sorted by location in the API, 
             // then our roboTree won't be balanced; search and insert operations would be slower.
-
+        // This also helps make the expected search time n/2 for the simple linear approach.
+        
         let roboTree = constructKDRoboTree(robots);
 
         startCLILoop(robots, roboTree);
