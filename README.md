@@ -67,8 +67,8 @@
 #### KD-Tree(RoboTree) Delete functionality:
 - Deletes from the KD-Tree(RoboTree) a robot that is currently busy carrying a load.
 
-#### Make Sure the RoboTree Is Not Skewed
-##### Add a depth property to RoboNodes
+#### Make Sure the RoboTree Is Not Skewed:
+##### Add a depth property to RoboNodes:
 - The depth property identifies how deep the RoboNode's furthest grandchild is.
 - Update the depth during insertion/deletion.
 #### After insertions or deletions, rebuild if too skewed:
