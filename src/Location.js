@@ -22,7 +22,8 @@ class Location{
             return this.y;
         }
     }
-
+    
+    // other: Location
     getDistanceFrom(other) {
         return Math.sqrt(Math.pow(this.x - other.getX(), 2) + Math.pow(this.y - other.getY(), 2))
     }
