@@ -47,7 +47,7 @@
 
 ## Two Implementations:
 ### KD-Tree (https://en.wikipedia.org/wiki/K-d_tree)
-- Constructs a KD-Tree using a randomly shuffled list of robots. (This is done only onceat the launch of the program)
+- Constructs a KD-Tree using a randomly shuffled list of robots. (This is done only once at the launch of the program)
 - Perform range search to identify robots that are close to the load.
 - Now we have an array of close robots, perfomr a Simple Linear Search.
 
