@@ -10,18 +10,32 @@
 - y: a number indicating the y coordinate of the load which needs to be moved.
 - radius: a number indicating the radius around the 'load'.
 
-##### Example prompt from the CLI: 
+##### Sample prompt from the CLI: 
 ###### Usage: loadId:String x:int y:int radius:int(default: 10)
-#### Example input from user:
+
+
+#### Example1 input from user:
+###### 8f2 4 56
+
+#### Example1 result:
+###### Result using the KD-Tree approach:
+###### { batteryLevel: 80, y: 63, x: 5, robotId: '97' }
+
+###### Result using the simple linear search approach:
+###### { batteryLevel: 80, y: 63, x: 5, robotId: '97' }
+
+
+#### Example2 input from user:
 ###### 8f2 4 56 100000
 
-#### Example result:
+#### Example2 result:
 ###### Result using the KD-Tree approach:
 ###### { batteryLevel: 100, y: 53, x: 38, robotId: '56' }
 
 ###### Result using the simple linear search approach:
 ###### { batteryLevel: 100, y: 53, x: 38, robotId: '56' }
 
+##### Note: it is expected that both appreaches should find the same best robot.
 
 ## To start:
 #### npm install
