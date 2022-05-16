@@ -43,7 +43,7 @@
 ##### Note: it is expected that both appreaches find the same best robot.
 
 ## To start:
-#### npm install
+#### $ npm install
 ###### then, either:
 ##### $ npm start
 ###### or 
