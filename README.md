@@ -13,7 +13,7 @@
 ##### Example prompt from the CLI: 
 ###### Usage: loadId:String x:int y:int radius:int(default: 10)
 #### Example input from user:
-###### 8f2 4 56
+###### 8f2 4 56 100000
 
 #### Example result:
 ###### Result using the KD-Tree approach:
