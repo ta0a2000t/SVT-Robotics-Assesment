@@ -45,9 +45,11 @@
 ###### or 
 ##### $ node app.js
 
-## Implementation:
+## Two Implementations:
 ### KD-Tree
 - Constructs a KD-Tree using a randomly shuffled list of robots. (This is done only onceat the launch of the program)
+- Perform range search to identify robots that are close to the load.
+- Now we have an array of close robots, perfomr a Simple Linear Search.
 
 #### KD-Tree Construction| Time: O( nlog(n) )  ,   Space: O(n)
 #### Find Best Robot| Time: O( log(n) )  ,   Expected Space: O( log(n) )
@@ -59,3 +61,17 @@
 - Report the robot with the highest battery level and is within the radius from the load.
 
 ###### Find Best Robot| Time: O(n)  ,   Space: O(1) 
+
+
+## Additional Possible Fueatures:
+#### KD-Tree(RoboTree) Delete functionality:
+- Deletes from the KD-Tree(RoboTree) a robot that is currently busy carrying a load.
+
+#### Make Sure the RoboTree Is Not Skewed
+##### Add a depth property to RoboNodes
+- The depth property identifies how deep the RoboNode's furthest grandchild is.
+- Update the depth during insertion/deletion.
+#### After insertions or deletions, rebuild if too skewed:
+- After an insertion/deletion, which is done recursively, check if the depth of an ancestor of the inserted/delted robot is too different from the depth of its sibling.
+- Rebuild the subtree rooted at the parent of that ancestor and update cutting dimetions (if the current rectangle is too wide, the cutting dimetion would be vertical, otherwise horizontal). 
+- To rebuild, make an array containing all the nodes of that subtree, then shuffle that array randomly to have an expected hieght of O(log(n)).
