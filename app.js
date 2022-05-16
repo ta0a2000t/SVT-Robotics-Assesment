@@ -39,10 +39,10 @@ function getBestRobot(roboTree, targetLoad, validRadius) {
 
     let best = roboTree.getBestRobot(targetLoad.location, validRadius);
 
+    console.log(">>>Result using the KD-Tree approach:")
+    console.log((best === undefined) ? `No robots within ${validRadius} distance.`: best);
     console.log("");
-    console.log("Result using the KD-Tree approach:")
-    console.log(best);
-    console.log("");
+
 }
 
 
@@ -55,10 +55,10 @@ function getBestRobot(roboTree, targetLoad, validRadius) {
 function simpleGetBestRobot(robots, targetLoad, validRadius) {
     let best = UtilityFunctions.bestRobot(robots, validRadius, targetLoad.location);
 
+    console.log(">>>Result using the simple linear search approach:")
+    console.log((best === undefined) ? `No robots within ${validRadius} distance.`: best);
     console.log("");
-    console.log("Result using the simple linear search approach:")
-    console.log(best);
-    console.log("");
+
 }
 
 // robots: array of robots, for the linear search
@@ -68,16 +68,17 @@ function startCLILoop(robots, roboTree) {
     rl.on('line', (line) => {
         const arguments = line.trim().split(' ');
         const validRadius = parseInt(arguments[3]) || 10; // only consider robots within this radius, default 10
-        
         const targetLoad = {
             loadId : arguments[0],
             location: new Location(parseInt(arguments[1]), parseInt(arguments[2]))
         };
         if(isNaN(targetLoad.location.getX()) || isNaN(targetLoad.location.getY())) {
             console.log("invalid arguemnts! Try again...");
-        } else if(validRadius !== undefined && isNaN(validRadius)) {
+        } else if(validRadius !== undefined && isNaN(validRadius) || validRadius < 1) {
             console.log("invalid radius! Try again...");
         } else {
+            console.log(`Searching within ${validRadius} distance...`);
+
             getBestRobot(roboTree, targetLoad, validRadius);
             simpleGetBestRobot(robots, targetLoad, validRadius)
         }

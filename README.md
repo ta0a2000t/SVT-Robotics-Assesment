@@ -16,25 +16,29 @@
 
 
 #### Example1 input from user:
-###### 8f2 4 56
+###### f3 5 7
 
 #### Example1 result:
-###### Result using the KD-Tree approach:
-###### { batteryLevel: 80, y: 63, x: 5, robotId: '97' }
+###### Searching within 10 distance...
+###### >>>Result using the KD-Tree approach:
+###### { batteryLevel: 77, y: 13, x: 4, robotId: '84' }
 
-###### Result using the simple linear search approach:
-###### { batteryLevel: 80, y: 63, x: 5, robotId: '97' }
+###### >>>Result using the simple linear search approach:
+###### { batteryLevel: 77, y: 13, x: 4, robotId: '84' }
 
 
 #### Example2 input from user:
-###### 8f2 4 56 100000
+###### f3 5 7 99999
+
 
 #### Example2 result:
-###### Result using the KD-Tree approach:
+###### Searching within 99999 distance...
+###### >>>Result using the KD-Tree approach:
 ###### { batteryLevel: 100, y: 53, x: 38, robotId: '56' }
 
-###### Result using the simple linear search approach:
+###### >>>Result using the simple linear search approach:
 ###### { batteryLevel: 100, y: 53, x: 38, robotId: '56' }
+
 
 ##### Note: it is expected that both appreaches find the same best robot.
 
@@ -89,7 +93,5 @@
 #### Compare Performace:
 - Since we have two implementations, we can create a program that identifies which one to use.
 - The program can generate n random robots and compares the performance of the two implementations for different values of n and for different number of search operations. So, if we had a large dataset with many searches, the KD-Tree implementation would be better.
-- I think that for small data sizes, the Simple Linear Search would be faster.
+- I think that for small data sizes and few search operations, the Simple Linear Search would be faster, but we don't know at what point we should switch to KD-Tree.
 - However, I think that the curves of "time VS number of robots" meet at some point. So, let's say for a list of more than k robots, the KD-Tree implementation would be more efficient. Identifying what k is can help us know which method is more efficient for our data size.
-
-
