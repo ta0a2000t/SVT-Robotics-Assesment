@@ -70,7 +70,7 @@
 #### Make Sure the RoboTree Is Not Skewed:
 ##### Add a depth property to RoboNodes:
 - The depth property identifies how deep the RoboNode's furthest grandchild is.
-- Update the depth during insertion/deletion.
+- Update the depth using the recursion stack during insertion/deletion.
 #### After insertions or deletions, rebuild if too skewed:
 - After an insertion/deletion, which is done recursively, check if the depth of an ancestor of the inserted/delted robot is too different from the depth of its sibling.
 - Rebuild the subtree rooted at the parent of that ancestor and update cutting dimetions (if the current rectangle is too wide, the cutting dimetion would be vertical, otherwise horizontal). 
