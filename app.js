@@ -45,9 +45,6 @@ function getBestRobot(roboTree, targetLoad, validRadius) {
     console.log("");
     console.log("Result using the KD-Tree approach:")
     console.log(best);
-
-    //console.log("KD-Tree Construction| Time: O( nlog(n) )  ,   Space: O(n) ");
-    //console.log("Find Best Robot| Time: O( log(n) )  ,   Space: O( log(n) ) ");
     console.log("");
 }
 
@@ -60,7 +57,6 @@ function getBestRobot(roboTree, targetLoad, validRadius) {
 // returns a robot
 function simpleGetBestRobot(robots, targetLoad, validRadius) {
     let best = UtilityFunctions.bestRobot(robots, validRadius, targetLoad.location);
-    console.log({validRadius});
 
     console.log("");
     console.log("Result using the simple linear search approach:")
