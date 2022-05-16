@@ -19,12 +19,10 @@ async function getRobotsArray(url) {
     return await axios(url).then(response => response.data);
 }
 
-
 // runs once at the begginning of this cli program
 function constructKDRoboTree(robots) {
     let boundingBox = new Rectangle(new Location(0, 0), new Location(100, 100)); // the warehouse
     let roboTree = new RoboTree(boundingBox);
-
 
     // construct the tree
     for(let robot of robots) {
@@ -33,7 +31,6 @@ function constructKDRoboTree(robots) {
 
     return roboTree;
 }
-
 
 // targetLoad.loadId: string
 // targetLoad.location: Location

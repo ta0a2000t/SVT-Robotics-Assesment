@@ -72,8 +72,24 @@
 ##### Add a depth property to RoboNodes:
 - The depth property identifies how deep the RoboNode's furthest child/grandchild is.
 - Update the depth using the recursion stack during insertion/deletion.
-#### After insertions or deletions, rebuild if too skewed:
+##### After insertions or deletions, rebuild if too skewed:
+- We aim to have O(log(n)) search operations, so if the tree is too skewed, we rebuild to avoid having O(n) height.
 - After an insertion/deletion, which is done recursively, check if the depth of an ancestor of the inserted/delted robot is too different from the depth of its sibling.
 - Rebuild the subtree rooted at the parent of that ancestor and update cutting dimetions (if the current rectangle is too wide, the cutting dimetion would be vertical, otherwise horizontal). 
 - To rebuild, make an array containing all the nodes of that subtree, then shuffle that array randomly to have an expected height of O(log(n)).
+
+#### Add Unit Tests:
+- Here I only tested by running some examples and debugging.
+- Creating tests would help identify edge cases.
+- It would also help me verify that the implimentation still works after making modifications.
+
+#### Add Visualization:
+- Having a way to visualize the locations of the robots and the load can miimize bugs and debugging time after adding more features.
+
+#### Compare Performace:
+- Since we have two implementations, we can create a program that identifies which one to use.
+- The program can generate n random robots and compares the performance of the two implementations for different values of n and for different number of search operations. So, if we had a large dataset with many searches, the KD-Tree implementation would be better.
+- I think that for small data sizes, the Simple Linear Search would be faster.
+- However, I think that the curves of "time VS number of robots" meet at some point. So, let's say for a list of more than k robots, the KD-Tree implementation would be more efficient. Identifying what k is can help us know which method is more efficient for our data size.
+
 
