@@ -61,13 +61,11 @@ function simpleGetBestRobot(robots, targetLoad, validRadius) {
     console.log("");
     console.log("Result using the simple linear search approach:")
     console.log(best);
-    
-    //console.log("Find Best Robot| Time: O(n)  ,   Space: O(1) ");
     console.log("");
 }
 
-        // robots: array of robots, for the linear search
-        // roboTree: RoboTree, for the KDTree's logarithmic search
+// robots: array of robots, for the linear search
+// roboTree: RoboTree, for the KDTree's logarithmic search
 function startCLILoop(robots, roboTree) {
     rl.prompt();
     rl.on('line', (line) => {
@@ -93,6 +91,7 @@ function startCLILoop(robots, roboTree) {
     });
 }
 
+
 function main() {
     getRobotsArray(URL).then(function(robots) {
         // randomize the array of robots to get a KD-Tree of height O(log(n)) in expectancy.
@@ -105,7 +104,6 @@ function main() {
 
         startCLILoop(robots, roboTree);
     })
-
 }
 
 
