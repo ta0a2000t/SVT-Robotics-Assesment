@@ -12,7 +12,7 @@
 - radius: a number indicating the radius around the 'load'.
 
 ##### Sample prompt from the CLI: 
-###### Usage: loadId:String &nbsp; &nbsp; y:int &nbsp; &nbsp;  x:int &nbsp; &nbsp;  radius:int(default: 10)
+###### Usage: loadId:String &nbsp; y:int &nbsp; x:int &nbsp;  radius:int(default: 10)
 
 
 #### Example1 input from user:
