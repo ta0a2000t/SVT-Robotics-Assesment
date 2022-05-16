@@ -49,13 +49,13 @@
 ### KD-Tree
 - Constructs a KD-Tree using a randomly shuffled list of robots. (This is done only onceat the launch of the program)
 
-
-###### KD-Tree Construction| Time: O( nlog(n) )  ,   Space: O(n)
-###### Find Best Robot| Time: O( log(n) )  ,   Space: O( log(n) )
+#### KD-Tree Construction| Time: O( nlog(n) )  ,   Space: O(n)
+#### Find Best Robot| Time: O( log(n) )  ,   Expected Space: O( log(n) )
+- Complexity proportional to hegiht of the tree, 'expected' since we shuffle the robot array randomly.
 
 ### Simple Linear Search
 - Go through a randomly shuffled list of robots.
 - For every robot, check if the robot is within the radius from the load and do not consider if it is not.
 - Report the robot with the highest battery level and is within the radius from the load.
 
-###### Find Best Robot| Time: O(n)  ,   Space: O(1)
+###### Find Best Robot| Time: O(n)  ,   Space: O(1) 
