@@ -54,7 +54,7 @@
 - Relies on randomization of insertion.
 - Constructs a KD-Tree using a randomly shuffled list of robots. (This is done only once at the launch of the program)
 - Perform range search to identify robots that are close to the load.
-- Now we have an array of close robots, perfomr a Simple Linear Search.
+- Now we have an array of close robots, perform a Simple Linear Search.
 
 ###### KD-Tree Construction| Time: O( nlog(n) )  ,   Space: O(n)
 ###### Find Best Robot| Time: O( log(n) )  ,   Expected Space: O( log(n) )
