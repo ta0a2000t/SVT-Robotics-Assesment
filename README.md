@@ -12,6 +12,16 @@
 
 ##### Example prompt from the CLI: 
 ###### Usage: loadId:String x:int y:int radius:int(default: 10)
+#### Example input from user:
+###### 8f2 4 56
+
+#### Example result:
+###### Result using the KD-Tree approach:
+###### { batteryLevel: 100, y: 53, x: 38, robotId: '56' }
+
+###### Result using the simple linear search approach:
+###### { batteryLevel: 100, y: 53, x: 38, robotId: '56' }
+
 
 ## To start:
 #### npm install
